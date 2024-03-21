@@ -31,7 +31,6 @@
 <!--Här har vi radio options för den ort man är tilldelad-->
 Tilldelad ort <br>
 
-<label id="ort">
 <input type="radio" id="option1" name="ort" value="gbg">
 Göteborg <br>
 <input type="radio" id="option2" name="ort" value="sthlm">
@@ -40,7 +39,6 @@ Stockholm <br>
 Umeå</label><br>
 <input type="radio" id="option4" name="ort" value="lule" checked="checked">
 Luleå<br><br> 
-</label>
 
 <!--Här har vi en till droplist för att välja kategori-->
 <select name="kategori" id="kategori">
@@ -51,14 +49,14 @@ Luleå<br><br>
 </select><br><br>
 
 <!--Här har vi en vanlig input och en textarea för det större behovet för utrymme-->
-<label for="rubrik" id="rubrik">Rubrik: </label> <br>
+<label id="rubrik">Rubrik: </label> <br>
 <input type="text" name="rubrik" required><br><br>
 <label for="beskrivning" >Beskrivning: </label> <br>
 <textarea  name="beskriving" id="beskrivning" required></textarea><br>
 
 <!--Sist men inte minst så har vi knapparna, en submit och en reset-->
 <input type="submit" value="Submit" name="skicka">
-<input type="reset" value="Reset" n>
+<input type="reset" value="Reset">
 </form>
 
 <script>
