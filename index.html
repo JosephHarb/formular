@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="utf-8">	
+		<title>Formulär</title>
+        
+	</head>
+    <body>
+
+<!--Här börjar formuläret, vart den ska skickas och den funktion som ska kallas när den skickas-->
+<form name="formular" action="https://staff.www.ltu.se/~susfah/uppgift3b/parse_form.php" method="POST" onsubmit="return validering"> 
+           
+  <!--Här har vi delen av koden som tar emot användarens namn och telefonnummer-->
+  Ditt namn: <br>
+  <input type="text" name="namn" id="namn" required >
+  <span id="namnSaknas"></span><br><br>
+
+  Telefon:<br>
+  <input type="text" name="telefon" id="phone" required><br><br>
+  <span id="phoneError"></span>
+           
+<!--Här har vi en droplist där användaren kan välja nivå av prioritet-->
+<label for="prioritet">Prioritet</label>
+<select id="prioritet" name="prioritet">
+    <option value="1">Låg</option>
+    <option value="2" selected>Normal</option>
+    <option value="3">Hög</option>
+</select>
+<br><br>
+
+<!--Här har vi radio options för den ort man är tilldelad-->
+Tilldelad ort <br>
+
+<label id="ort">
+<input type="radio" id="option1" name="ort" value="gbg">
+Göteborg <br>
+<input type="radio" id="option2" name="ort" value="sthlm">
+Stockholm <br>
+<input type="radio" id="option3" name="ort" value="ume">
+Umeå</label><br>
+<input type="radio" id="option4" name="ort" value="lule" checked="checked">
+Luleå<br><br> 
+</label>
+
+<!--Här har vi en till droplist för att välja kategori-->
+<select name="kategori" id="kategori">
+<option value="tel" selected>Telefoni</option>  
+<option value="net">Internet</option>
+<option value="fak">Fakturering</option>
+<option value="epost">E-post</option>
+</select><br><br>
+
+<!--Här har vi en vanlig input och en textarea för det större behovet för utrymme-->
+<label for="rubrik" id="rubrik">Rubrik: </label> <br>
+<input type="text" name="rubrik" required><br><br>
+<label for="beskrivning" >Beskrivning: </label> <br>
+<textarea  name="beskriving" id="beskrivning" required></textarea><br>
+
+<!--Sist men inte minst så har vi knapparna, en submit och en reset-->
+<input type="submit" value="Submit" name="skicka">
+<input type="reset" value="Reset" n>
+</form>
+
+<script>
+/* hämtar alla värden från formuläret till javascript */ 
+
+var name = document.getElementById('namn');
+var nameError =document.getElementById('namnSaknas');
+var phone = document.getElementById('phone');
+var phoneError = document.getElementById('phoneError');
+
+var priority = document.getElementById('prioritet').value;
+var city = document.getElementById('ort');
+var category = document.getElementById('kategori');
+var headline = document.getElementById('rubrik');
+var description = document.getElementById('beskrivning');
+
+
+function validering(){
+  if (name === ' ') {
+    alert("Namn saknas")
+    nameError.innerHTML = "Skriv in ett namn";
+    return false;
+
+  if (!telefonValidering()){    
+    phoneError.innerHTML = "Telefon nummer saknas"
+    return false;
+  }
+  }
+
+console.log = "/nNamn: " + name +
+"/nPrioritet: " + priority +
+"/nOrt: " + city + 
+"/nKategori: " + category +
+"n/Rubrik: "+headline+
+"n/Beskrivning: " + description ; 
+}
+
+function telefonValidering(){
+var character = phone[i] 
+for (i=0; i<=phone.length; i++) {
+  if (!(character >= 0 || character!=='-' || character <=9)){
+  return false
+}
+else {return true}
+}
+}
+</script>
+    </body>
+</html>
